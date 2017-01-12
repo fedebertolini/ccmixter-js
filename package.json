@@ -1,0 +1,17 @@
+{
+  "name": "ccmixter-js",
+  "version": "1.0.0",
+  "description": "ccmixter javascript api client",
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint src __tests__"
+  },
+  "author": "Federico Bertolini",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.13.0",
+    "eslint-config-airbnb-base": "^11.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "jest": "^18.1.0"
+  }
+}
