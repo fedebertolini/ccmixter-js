@@ -1,6 +1,22 @@
 # ccmixter-js
 This is an unofficial NodeJS client of the [ccmixter](http://ccmixter.org/) API. This is a simplified and small client that does not cover all resources and parameters that the ccmixter api actually supports.
 
+## Installation
+
+```
+npm install ccmixter-js --save
+```
+
+Or if you are using [yarn](https://yarnpkg.com/):
+```
+yarn add ccmixter-js
+```
+
+## Requiring
+```
+const ccmixter = require('ccmixter-js');
+```
+
 ## API client methods
 
 ### Songs

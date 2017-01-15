@@ -1,13 +1,22 @@
 {
   "name": "ccmixter-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "ccmixter javascript api client",
+  "main": "src/ccmixter.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint src __tests__"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedebertolini/ccmixter-js.git"
+  },
   "author": "Federico Bertolini",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fedebertolini/ccmixter-js/issues"
+  },
+  "homepage": "https://github.com/fedebertolini/ccmixter-js#readme",
   "devDependencies": {
     "eslint": "^3.13.0",
     "eslint-config-airbnb-base": "^11.0.0",
