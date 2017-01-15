@@ -2,16 +2,16 @@ const httpClient = require('./httpClient');
 
 const apiHostname = 'http://ccmixter.org/api/';
 
-const buildOptions = (category, options) => ({
+const buildOptions = (category) => ({
     category,
-    sort: options.sort || 'name',
-    ord: options.ord || 'asc',
+    sort: 'name',
+    ord: 'asc',
     dataview: 'tags',
     f: 'jsex',
 });
 
-exports.getGenres = (options = {}) => {
-    const requestOptions = buildOptions('genre', options);
+exports.getGenres = () => {
+    const requestOptions = buildOptions('genre', {});
 
     return httpClient.get(apiHostname, 'query', requestOptions).then((items) => {
         return items.map(item => ({
@@ -21,8 +21,8 @@ exports.getGenres = (options = {}) => {
     });
 };
 
-exports.getInstrumentations = (options = {}) => {
-    const requestOptions = buildOptions('instr', options);
+exports.getInstrumentations = () => {
+    const requestOptions = buildOptions('instr', {});
 
     return httpClient.get(apiHostname, 'query', requestOptions).then((items) => {
         return items.map(item => ({

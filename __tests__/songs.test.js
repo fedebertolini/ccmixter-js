@@ -20,6 +20,19 @@ test('search items by phrase', () => {
     });
 });
 
+test('search items by phrase and tag', () => {
+    const params = {
+        searchPhrase: 'rock',
+        tags: ['female_vocals'],
+        limit: 2
+    };
+    return queries.search(params).then((result) => {
+        expect(result).toBeTruthy();
+        expect(result.items.length).toBeGreaterThan(0);
+        expect(result.totalCount).toBeGreaterThan(0);
+    });
+});
+
 test('search by phrase returns less items than default params', () => {
     return Promise.all([
         queries.search(),

@@ -8,6 +8,13 @@ test('search artists by default params', () => {
     });
 });
 
+test('search artists by name', () => {
+    return artists.search('John').then((result) => {
+        expect(result).toBeTruthy();
+        expect(result.length).toBeGreaterThan(0);
+    });
+});
+
 test('facade has searchArtists method', () => {
     expect(typeof ccmixter.searchArtists).toBe('function');
 });
