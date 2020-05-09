@@ -10,11 +10,11 @@ exports.get = (host, pathname, queryParameters) => {
 
     return new Promise((resolve, reject) => {
         http.get(requestUrl, (res) => {
-            const statusCode = res.statusCode;
+            const { statusCode } = res;
 
             if (statusCode !== 200) {
                 res.resume();
-                reject(`Request Failed. Status Code: ${statusCode}`);
+                reject(new Error(`Request Failed. Status Code: ${statusCode}`));
             } else {
                 res.setEncoding('utf8');
                 let rawData = '';
@@ -25,11 +25,11 @@ exports.get = (host, pathname, queryParameters) => {
                     try {
                         resolve(JSON.parse(rawData));
                     } catch (e) {
-                        reject(`Error parsing response to JSON: ${e.message}`);
+                        reject(new Error(`Error parsing response to JSON: ${e.message}`));
                     }
                 });
                 res.on('error', (e) => {
-                    reject(`Error reading response: ${e.message}`);
+                    reject(new Error(`Error reading response: ${e.message}`));
                 });
             }
         });

@@ -24,7 +24,7 @@ test('search items by phrase and tag', () => {
     const params = {
         searchPhrase: 'rock',
         tags: ['female_vocals'],
-        limit: 2
+        limit: 2,
     };
     return queries.search(params).then((result) => {
         expect(result).toBeTruthy();
@@ -52,7 +52,7 @@ test('search items by tag', () => {
         expect(result.totalCount).toBeGreaterThan(0);
         const allSongsHaveTag = result.items.every((song) => {
             const songTags = song.upload_extra.usertags.split(',');
-            return songTags.find(tag => tag === 'instrumental');
+            return songTags.find((tag) => tag === 'instrumental');
         });
         expect(allSongsHaveTag).toBe(true);
     });

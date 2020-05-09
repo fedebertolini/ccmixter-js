@@ -1,5 +1,5 @@
-const httpClient = require('./httpClient');
 const querystring = require('querystring');
+const httpClient = require('./httpClient');
 
 const apiHostname = 'http://ccmixter.org/api/';
 
@@ -24,7 +24,7 @@ const buildFilterParameters = (options) => {
 
 exports.search = (options = {}) => {
     const itemsParameters = buildFilterParameters(options);
-    const countParameters = Object.assign({}, itemsParameters);
+    const countParameters = { ...itemsParameters };
 
     countParameters.f = 'count';
     itemsParameters.f = 'jsex';
@@ -36,7 +36,7 @@ exports.search = (options = {}) => {
         count: querystring.stringify(countParameters),
     };
 
-    return httpClient.get(apiHostname, 'queries', requestOptions).then(result => ({
+    return httpClient.get(apiHostname, 'queries', requestOptions).then((result) => ({
         items: result[0].items,
         totalCount: result[0].count[0],
     }));
